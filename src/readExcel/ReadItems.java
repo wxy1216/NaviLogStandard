@@ -34,85 +34,85 @@ public class ReadItems {
 		Items item=null;
 		List<Items> list=new ArrayList<Items>();
 		
-		SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMddHHmmss");//ÈÕÆÚ¸ñÊ½
+		SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMddHHmmss");//æ—¥æœŸæ ¼å¼
 		
 		try{
-			//Ö§³ÖExcel 2003 2007
+			//æ”¯æŒExcel 2003 2007
 			
-//			JFileChooser chooser = new JFileChooser(); //´´½¨Ñ¡ÔñÎÄ¼ş¶ÔÏó
-//			chooser.setDialogTitle("ÇëÑ¡ÔñÎÄ¼ş");//ÉèÖÃ±êÌâ
-//			chooser.setMultiSelectionEnabled(true);  //ÉèÖÃÖ»ÄÜÑ¡ÔñÎÄ¼ş
-//			FileNameExtensionFilter filter = new FileNameExtensionFilter("xlsx", "xlsx");//¶¨Òå¿ÉÑ¡ÔñÎÄ¼şÀàĞÍ
-//			chooser.setFileFilter(filter); //ÉèÖÃ¿ÉÑ¡ÔñÎÄ¼şÀàĞÍ
-//			chooser.showOpenDialog(null); //´ò¿ªÑ¡ÔñÎÄ¼ş¶Ô»°¿ò,null¿ÉÉèÖÃÎªÄãµ±Ç°µÄ´°¿ÚJFrame»òFrame
-//			File excelfile = chooser.getSelectedFile(); //fileÎªÓÃ»§Ñ¡ÔñµÄÍ¼Æ¬ÎÄ¼ş
+//			JFileChooser chooser = new JFileChooser(); //åˆ›å»ºé€‰æ‹©æ–‡ä»¶å¯¹è±¡
+//			chooser.setDialogTitle("è¯·é€‰æ‹©æ–‡ä»¶");//è®¾ç½®æ ‡é¢˜
+//			chooser.setMultiSelectionEnabled(true);  //è®¾ç½®åªèƒ½é€‰æ‹©æ–‡ä»¶
+//			FileNameExtensionFilter filter = new FileNameExtensionFilter("xlsx", "xlsx");//å®šä¹‰å¯é€‰æ‹©æ–‡ä»¶ç±»å‹
+//			chooser.setFileFilter(filter); //è®¾ç½®å¯é€‰æ‹©æ–‡ä»¶ç±»å‹
+//			chooser.showOpenDialog(null); //æ‰“å¼€é€‰æ‹©æ–‡ä»¶å¯¹è¯æ¡†,nullå¯è®¾ç½®ä¸ºä½ å½“å‰çš„çª—å£JFrameæˆ–Frame
+//			File excelfile = chooser.getSelectedFile(); //fileä¸ºç”¨æˆ·é€‰æ‹©çš„å›¾ç‰‡æ–‡ä»¶
 //			String filename=excelfile.getAbsolutePath();
 //			
-//			System.out.println(filename);//»ñµÃÎÄ¼ş¾ø¶ÔÂ·¾¶
+//			System.out.println(filename);//è·å¾—æ–‡ä»¶ç»å¯¹è·¯å¾„
 			
-			File excelFile = new File("d:/01.xlsx");//´´½¨ÎÄ¼ş¶ÔÏó
-			FileInputStream is=new FileInputStream(excelFile);//ÎÄ¼şÁ÷
-			Workbook workbook=WorkbookFactory.create(is);//2003 2007 2010¶¼¿ÉÒÔ´¦Àí
-			int sheetCount=workbook.getNumberOfSheets();//SheetµÄÊıÁ¿x
+			File excelFile = new File("d:/01.xlsx");//åˆ›å»ºæ–‡ä»¶å¯¹è±¡
+			FileInputStream is=new FileInputStream(excelFile);//æ–‡ä»¶æµ
+			Workbook workbook=WorkbookFactory.create(is);//2003 2007 2010éƒ½å¯ä»¥å¤„ç†
+			int sheetCount=workbook.getNumberOfSheets();//Sheetçš„æ•°é‡x
 			
-			//±éÀúÃ¿¸öSheet
+			//éå†æ¯ä¸ªSheet
 			for(int s=0;s<sheetCount;s++){
 				Sheet sheet=workbook.getSheetAt(s);
-				int rowCount=sheet.getPhysicalNumberOfRows();//»ñÈ¡×ÜĞĞÊı
+				int rowCount=sheet.getPhysicalNumberOfRows();//è·å–æ€»è¡Œæ•°
 				
 				//System.out.println(rowCount);
 				
-				//±éÀúÃ¿Ò»ĞĞ
+				//éå†æ¯ä¸€è¡Œ
 				for(int r=0;r<rowCount;r++){
 					
 					Row row=sheet.getRow(r);
-					//int cellCount=row.getPhysicalNumberOfCells();//»ñÈ¡×ÜÁĞÊı					
+					//int cellCount=row.getPhysicalNumberOfCells();//è·å–æ€»åˆ—æ•°						
 					String cellValue=null;
 					item=new Items();
 					
 					
-					//±àºÅ
+					//ç¼–å·
 					Cell cell=row.getCell(0);
 					cellValue=String.valueOf(cell.getNumericCellValue());
 					Double d=Double.parseDouble(cellValue);
-					item.setId(new Double(d).intValue());//×ªÎªÕûĞÍ
+					item.setId(new Double(d).intValue());//è½¬ä¸ºæ•´å‹
 					
-					//Ê±¼ä ÄêÔÂÈÕÊ±·ÖÃë
+					//æ—¶é—´ å¹´æœˆæ—¥æ—¶åˆ†ç§’
 					cell=row.getCell(21);
-					cellValue=fmt.format(cell.getDateCellValue());//ÈÕÆÚĞÍ
+					cellValue=fmt.format(cell.getDateCellValue());//æ—¥æœŸå‹
 					item.setTime(cellValue);
 					
-					//Î³¶È
+					//çº¬åº¦
 					cell=row.getCell(7);
 					cellValue=cell.getStringCellValue();
 					String str1,str2,str3,str4=null;
-					str1=cellValue.substring(0, 2);//str.substring(°üÀ¨,²»°üÀ¨)
+					str1=cellValue.substring(0, 2);//str.substring(åŒ…æ‹¬,ä¸åŒ…æ‹¬)
 					str2=cellValue.substring(3,5);
 					str3=cellValue.substring(6,11);
 					str4=cellValue.substring(12);
 					
 					item.setLatitude(str1+str2+str3+str4);
 					
-					//¾­¶È
+					//ç»åº¦
 					cell=row.getCell(6);
 					cellValue=cell.getStringCellValue();
 					//String str1,str2,str3,str4=null;
-					str1=cellValue.substring(0, 3);//str.substring(°üÀ¨,²»°üÀ¨)
+					str1=cellValue.substring(0, 3);//str.substring(åŒ…æ‹¬,ä¸åŒ…æ‹¬)
 					str2=cellValue.substring(4,6);
 					str3=cellValue.substring(7,12);
 					str4=cellValue.substring(13);
 					
 					item.setLongitude(str1+str2+str3+str4);
 					
-					//º½Ïò
+					//èˆªå‘
 					cell=row.getCell(8);
 					cellValue=cell.getStringCellValue();
 					//d=Double.parseDouble(cellValue);
-					//item.setCourseBoat(new Double(d).intValue());//×ªÎªÕûĞÍ
+					//item.setCourseBoat(new Double(d).intValue());//è½¬ä¸ºæ•´å‹
 					str1=cellValue.substring(0, 3);
 					item.setCourseBoat(str1);
 					
-					//º½ËÙ
+					//èˆªé€Ÿ
 					cell=row.getCell(9);
 					//cellValue=String.valueOf(cell.getNumericCellValue());
 					//d=Double.parseDouble(cellValue);
@@ -120,7 +120,7 @@ public class ReadItems {
 					str1=cellValue.substring(0, 4);
 					item.setSpeedBoat(str1);
 					
-					//ÄÜ¼û¶È
+					//èƒ½è§åº¦
 					cell=row.getCell(11);
 //					cellValue=String.valueOf(cell.getNumericCellValue());
 //					d=Double.parseDouble(cellValue);
@@ -128,15 +128,15 @@ public class ReadItems {
 					str1=cellValue.substring(0, 3);
 					item.setVisibility(str1);
 					
-					//ÀËÏò
+					//æµªå‘
 					cell=row.getCell(19);
 					//cellValue=String.valueOf(cell.getNumericCellValue());
 					//d=Double.parseDouble(cellValue);
 					cellValue=cell.getStringCellValue();
 					str1=cellValue.substring(0, 3);
-					item.setCourseWave(str1);//×ªÎªÕûĞÍ
+					item.setCourseWave(str1);//è½¬ä¸ºæ•´å‹
 					
-					//ÀË¸ß
+					//æµªé«˜
 					cell=row.getCell(20);
 //					cellValue=String.valueOf(cell.getNumericCellValue());
 //					d=Double.parseDouble(cellValue);
@@ -144,33 +144,33 @@ public class ReadItems {
 					str1=cellValue.substring(0, 4);
 					item.setHeightWave(str1);
 					
-					//·çÏò
+					//é£å‘
 					cell=row.getCell(15);
 //					cellValue=String.valueOf(cell.getNumericCellValue());
 //					d=Double.parseDouble(cellValue);
 					cellValue=cell.getStringCellValue();
 					str1=cellValue.substring(0, 3);
-					item.setCourseWind(str1);//×ªÎªÕûĞÍ
+					item.setCourseWind(str1);//è½¬ä¸ºæ•´å‹
 					
-					//·çËÙ
+					//é£é€Ÿ
 					cell=row.getCell(16);
 					cellValue=cell.getStringCellValue();
 					str1=cellValue.substring(0, 4);
 					item.setSpeedWind(str1);
 					
-					//¸ÉÎÂ
+					//å¹²æ¸©
 					cell=row.getCell(13);
 					cellValue=cell.getStringCellValue();
 					str1=cellValue.substring(0, 5);
 					item.setDryTemperature(str1);
 					
-					//ÊªÎÂ
+					//æ¹¿æ¸©
 					cell=row.getCell(14);
 					cellValue=cell.getStringCellValue();
 					str1=cellValue.substring(0, 5);
 					item.setWetTemperature(str1);
 					
-					//ÆøÑ¹
+					//æ°”å‹
 					cell=row.getCell(12);
 					cellValue=String.valueOf(cell.getNumericCellValue());
 					d=Double.parseDouble(cellValue);

@@ -4,47 +4,47 @@ import java.text.SimpleDateFormat;
 
 public class Items {
 	
-	//±àºÅ
+	//ç¼–å·
 	private Integer id;
 
-	//Ê±¼ä ÄêÔÂÈÕÊ±·ÖÃë
+	//æ—¶é—´ å¹´æœˆæ—¥æ—¶åˆ†ç§’
 	private String time;
 	
-	//Î³¶È
+	//çº¬åº¦
 	private String latitude;
 	
-	//¾­¶È
+	//ç»åº¦
 	private String longitude;
 	
-	//º½Ïò
+	//èˆªå‘
 	private String courseBoat;
 	
-	//º½ËÙ
+	//èˆªé€Ÿ
 	private String speedBoat;
 	
-	//ÄÜ¼û¶È
+	//èƒ½è§åº¦
 	private String visibility;
 //	private Double visibility;
 	
-	//ÀËÏò
+	//æµªå‘
 	private String courseWave;
 	
-	//ÀË¸ß
+	//æµªé«˜
 	private String heightWave;
 	
-	//·çÏò
+	//é£å‘
 	private String courseWind;
 	
-	//·çËÙ
+	//é£é€Ÿ
 	private String speedWind;
 	
-	//¸ÉÎÂ
+	//å¹²æ¸©
 	private String dryTemperature;
 	
-	//ÊªÎÂ
+	//æ¹¿æ¸©
 	private String wetTemperature;
 	
-	//ÆøÑ¹
+	//æ°”å‹
 	private Double pressure;
 
 	public Integer getId() {

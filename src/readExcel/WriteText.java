@@ -11,7 +11,7 @@ public class WriteText {
 	
 	public void writeT(List <Items> writeList) throws IOException{
 		
-		FileWriter file=new FileWriter("d:/write.txt");//Èç¹û²»´æÔÚ¾Í»á±»´´½¨
+		FileWriter file=new FileWriter("d:/write.txt");//å¦‚æœä¸å­˜åœ¨å°±ä¼šè¢«åˆ›å»º
 		BufferedWriter writer=new BufferedWriter(file);
 		
 		if (writeList != null) {
@@ -40,13 +40,13 @@ public class WriteText {
 				writer.write("30");
 				
 				writer.write(item.getHeightWave());				
-				writer.write("1099.99999 999.9 999.99");//Ğ¡ÊıÎ»
+				writer.write("1099.99999 999.9 999.99");//å°æ•°ä½
 				
 				writer.write(item.getCourseWind());				
 				writer.write("30");
 				
 				writer.write(item.getSpeedWind());				
-				writer.write("10");//·çËÙ Ö®Ç°±í¸ñÕûÊıÎ»     "00"Ğ¡ÊıÎ»
+				writer.write("10");//é£é€Ÿ ä¹‹å‰è¡¨æ ¼æ•´æ•°ä½     "00"å°æ•°ä½
 				
 				writer.write(item.getDryTemperature());				
 				writer.write("00");
