@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
+import java.text.DecimalFormat;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -106,68 +107,82 @@ public class ReadItems {
 					
 					//航向
 					cell=row.getCell(8);
-					cellValue=cell.getStringCellValue();
-					//d=Double.parseDouble(cellValue);
-					//item.setCourseBoat(new Double(d).intValue());//转为整型
-					str1=cellValue.substring(0, 3);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					DecimalFormat df=new DecimalFormat("000");
+					str1=df.format(d);
 					item.setCourseBoat(str1);
 					
 					//航速
 					cell=row.getCell(9);
-					//cellValue=String.valueOf(cell.getNumericCellValue());
-					//d=Double.parseDouble(cellValue);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 4);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("00.0").format(d);
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 4);
 					item.setSpeedBoat(str1);
 					
 					//能见度
 					cell=row.getCell(11);
-//					cellValue=String.valueOf(cell.getNumericCellValue());
-//					d=Double.parseDouble(cellValue);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 3);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("00.0").format(d);					
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 3);
 					item.setVisibility(str1);
 					
 					//浪向
 					cell=row.getCell(19);
-					//cellValue=String.valueOf(cell.getNumericCellValue());
-					//d=Double.parseDouble(cellValue);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 3);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("000").format(d);
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 3);
 					item.setCourseWave(str1);//转为整型
 					
 					//浪高
 					cell=row.getCell(20);
-//					cellValue=String.valueOf(cell.getNumericCellValue());
-//					d=Double.parseDouble(cellValue);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 4);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("00.0").format(d);
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 4);
 					item.setHeightWave(str1);
 					
 					//风向
 					cell=row.getCell(15);
-//					cellValue=String.valueOf(cell.getNumericCellValue());
-//					d=Double.parseDouble(cellValue);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 3);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("000").format(d);
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 3);
 					item.setCourseWind(str1);//转为整型
 					
 					//风速
 					cell=row.getCell(16);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 4);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("00.0").format(d);
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 4);
 					item.setSpeedWind(str1);
 					
 					//干温
 					cell=row.getCell(13);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 5);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("000.0").format(d);
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 5);
 					item.setDryTemperature(str1);
 					
 					//湿温
 					cell=row.getCell(14);
-					cellValue=cell.getStringCellValue();
-					str1=cellValue.substring(0, 5);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("000.0").format(d);
+//					cellValue=cell.getStringCellValue();
+//					str1=cellValue.substring(0, 5);
 					item.setWetTemperature(str1);
 					
 					//气压
