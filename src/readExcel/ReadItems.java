@@ -189,7 +189,8 @@ public class ReadItems {
 					cell=row.getCell(12);
 					cellValue=String.valueOf(cell.getNumericCellValue());
 					d=Double.parseDouble(cellValue);
-					item.setPressure(d);
+					str1=new DecimalFormat("0000.0").format(d);
+					item.setPressure(str1);
 					
 					list.add(item);
 				}

@@ -45,7 +45,7 @@ public class Items {
 	private String wetTemperature;
 	
 	//气压
-	private Double pressure;
+	private String pressure;
 
 	public Integer getId() {
 		return id;
@@ -151,11 +151,11 @@ public class Items {
 		this.wetTemperature = wetTemperature;
 	}
 
-	public Double getPressure() {
+	public String getPressure() {
 		return pressure;
 	}
 
-	public void setPressure(Double pressure) {
+	public void setPressure(String pressure) {
 		this.pressure = pressure;
 	}
 	
