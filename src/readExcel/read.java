@@ -38,11 +38,13 @@ public class read {
 		
 //		if (readList != null) {
 //			for(Items item:readList){
-//				System.out.println(item.getId()+"  "+item.getTime()+"  "+item.getLatitude()
-//				+"  "+item.getLongitude()+"  "+item.getCourseBoat()+"  "+item.getSpeedBoat()
-//				+"  "+item.getVisibility()+"  "+item.getCourseWave()+"  "+item.getHeightWave()
-//				+"  "+item.getCourseWind()+"  "+item.getSpeedWind()+"  "+item.getDryTemperature()
-//				+"  "+item.getWetTemperature()+"  "+item.getPressure());
+////				System.out.println(item.getId()+"  "+item.getTime()+"  "+item.getLatitude()
+////				+"  "+item.getLongitude()+"  "+item.getCourseBoat()+"  "+item.getSpeedBoat()
+////				+"  "+item.getVisibility()+"  "+item.getCourseWave()+"  "+item.getHeightWave()
+////				+"  "+item.getCourseWind()+"  "+item.getSpeedWind()+"  "+item.getDryTemperature()
+////				+"  "+item.getWetTemperature()+"  "+item.getPressure());
+//				
+//				System.out.println(item.getCloudAmount()+" "+item.getCloudCategory());
 //			}
 //		}
 

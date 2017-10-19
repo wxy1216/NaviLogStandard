@@ -29,6 +29,8 @@ public class WriteText {
 				
 				writer.write(item.getLongitude());				
 				writer.write("0 3");
+				//经纬度差值
+				
 				
 				writer.write(item.getCourseBoat());				
 //				writer.write("10");

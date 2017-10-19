@@ -46,7 +46,18 @@ public class Items {
 	
 	//气压
 	private String pressure;
-
+	
+	//云量
+	private String cloudAmount;
+	
+	//云状
+	private String cloudCategory;
+		
+	//天气现象
+	private String weatherPhenomenon;
+	
+	private String timeZone;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -159,5 +170,37 @@ public class Items {
 		this.pressure = pressure;
 	}
 	
+	public String getCloudAmount() {
+		return cloudAmount;
+	}
+
+	public void setCloudAmount(String cloudAmount) {
+		this.cloudAmount = cloudAmount;
+	}
+
+	public String getCloudCategory() {
+		return cloudCategory;
+	}
+
+	public void setCloudCategory(String cloudCategory) {
+		this.cloudCategory = cloudCategory;
+	}
+	
+	public String getWeatherPhenomenon() {
+		return weatherPhenomenon;
+	}
+
+	public void setWeatherPhenomenon(String weatherPhenomenon) {
+		this.weatherPhenomenon = weatherPhenomenon;
+	}
+
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	public void setTimeZone(String timeZone) {
+		this.timeZone = timeZone;
+	}
+
 
 }

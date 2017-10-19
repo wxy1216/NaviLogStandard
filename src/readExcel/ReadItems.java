@@ -82,7 +82,8 @@ public class ReadItems {
 					cell=row.getCell(21);
 					cellValue=fmt.format(cell.getDateCellValue());//日期型
 					item.setTime(cellValue);
-					
+						
+										
 					//纬度
 					cell=row.getCell(7);
 					cellValue=cell.getStringCellValue();
@@ -105,6 +106,7 @@ public class ReadItems {
 					
 					item.setLongitude(str1+str2+str3+str4);
 					
+					
 					//航向
 					cell=row.getCell(8);
 					cellValue=String.valueOf(cell.getNumericCellValue());
@@ -121,6 +123,14 @@ public class ReadItems {
 //					cellValue=cell.getStringCellValue();
 //					str1=cellValue.substring(0, 4);
 					item.setSpeedBoat(str1);
+					
+
+					//时区
+					cell=row.getCell(5);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("00").format(d);
+					item.setTimeZone(str1);
 					
 					//能见度
 					cell=row.getCell(11);
@@ -191,6 +201,40 @@ public class ReadItems {
 					d=Double.parseDouble(cellValue);
 					str1=new DecimalFormat("0000.0").format(d);
 					item.setPressure(str1);
+					
+					//云量
+					cell=row.getCell(18);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("00").format(d);
+					item.setCloudAmount(str1);
+					
+					//云状
+					cell=row.getCell(17);
+					cellValue=cell.getStringCellValue();
+					str1="00";
+//					str1=cellValue.substring(0, 2);
+										
+					switch(cellValue){
+					case "Fc":str1="02"; break;
+					case "St":str1="11"; break;
+					case "Fs":str1="12"; break;
+					case "Ns":str1="13"; break;
+					case "Fn":str1="14"; break;
+					case "Cc":str1="29"; break;
+					case "Cu":str1="30"; break;
+					case "Cb":str1="31"; break;
+					case "Sc":str1="32"; break;
+					case "As":str1="33"; break;
+					case "Ac":str1="34"; break;
+					case "Ci":str1="35"; break;
+					case "Cs":str1="36"; break;
+					default:str1="  ";
+										
+					}
+					item.setCloudCategory(str1);
+					
+					
 					
 					list.add(item);
 				}
