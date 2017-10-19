@@ -19,7 +19,11 @@ public class WriteText {
 				writer.write("22");
 				writer.write(item.getTime());
 				
-				writer.write("0-0800");
+//				writer.write("0-0800");
+				writer.write("0");
+				writer.write(item.getTimeZone());
+				writer.write("00");
+				
 				writer.write(item.getLatitude());				
 				writer.write("0");
 				
@@ -27,10 +31,23 @@ public class WriteText {
 				writer.write("0 3");
 				
 				writer.write(item.getCourseBoat());				
-				writer.write("10");
+//				writer.write("10");
+				if(item.getCourseBoat().equals("999"))
+					writer.write("19");
+				else writer.write("10");
 				
 				writer.write(item.getSpeedBoat());				
-				writer.write("10999999                      9  9  9999999");
+//				writer.write("10");
+				if(item.getSpeedBoat().equals("99.9"))
+					writer.write("19");
+				else writer.write("10");
+				
+				
+				writer.write(item.getCloudAmount());
+				writer.write("0999");
+				writer.write(item.getCloudCategory());
+				writer.write("                    9  9  9999999");
+				
 				
 //				writer.write(item.getVisibility().toString());
 				writer.write(item.getVisibility());
