@@ -53,7 +53,10 @@ public class WriteText {
 				
 //				writer.write(item.getVisibility().toString());
 				writer.write(item.getVisibility());
-				writer.write("10  9  9");
+				writer.write("10");
+				
+				writer.write(item.getWeatherPhenomenon());
+				writer.write("0  9");
 				
 				writer.write(item.getCourseWave());				
 				writer.write("30");

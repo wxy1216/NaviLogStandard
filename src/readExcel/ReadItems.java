@@ -40,18 +40,19 @@ public class ReadItems {
 		try{
 			//支持Excel 2003 2007
 			
-//			JFileChooser chooser = new JFileChooser(); //创建选择文件对象
-//			chooser.setDialogTitle("请选择文件");//设置标题
-//			chooser.setMultiSelectionEnabled(true);  //设置只能选择文件
-//			FileNameExtensionFilter filter = new FileNameExtensionFilter("xlsx", "xlsx");//定义可选择文件类型
-//			chooser.setFileFilter(filter); //设置可选择文件类型
-//			chooser.showOpenDialog(null); //打开选择文件对话框,null可设置为你当前的窗口JFrame或Frame
-//			File excelfile = chooser.getSelectedFile(); //file为用户选择的图片文件
+			JFileChooser chooser = new JFileChooser(); //创建选择文件对象
+			chooser.setDialogTitle("请选择文件");//设置标题
+			chooser.setMultiSelectionEnabled(true);  //设置只能选择文件
+			FileNameExtensionFilter filter = new FileNameExtensionFilter("xlsx", "xlsx");//定义可选择文件类型
+			chooser.setFileFilter(filter); //设置可选择文件类型
+			chooser.showOpenDialog(null); //打开选择文件对话框,null可设置为你当前的窗口JFrame或Frame
+			File excelFile = chooser.getSelectedFile(); //file为用户选择的图片文件
 //			String filename=excelfile.getAbsolutePath();
 //			
 //			System.out.println(filename);//获得文件绝对路径
 			
-			File excelFile = new File("d:/01.xlsx");//创建文件对象
+			
+//			File excelFile = new File("d:/01.xlsx");//创建文件对象
 			FileInputStream is=new FileInputStream(excelFile);//文件流
 			Workbook workbook=WorkbookFactory.create(is);//2003 2007 2010都可以处理
 			int sheetCount=workbook.getNumberOfSheets();//Sheet的数量x
@@ -129,7 +130,10 @@ public class ReadItems {
 					cell=row.getCell(5);
 					cellValue=String.valueOf(cell.getNumericCellValue());
 					d=Double.parseDouble(cellValue);
-					str1=new DecimalFormat("00").format(d);
+					if(d<0)
+						str1=new DecimalFormat("00").format(d);
+					else
+						str1=new DecimalFormat("+00").format(d);
 					item.setTimeZone(str1);
 					
 					//能见度
@@ -234,6 +238,12 @@ public class ReadItems {
 					}
 					item.setCloudCategory(str1);
 					
+					//天气现象
+					cell=row.getCell(10);
+					cellValue=String.valueOf(cell.getNumericCellValue());
+					d=Double.parseDouble(cellValue);
+					str1=new DecimalFormat("00").format(d);
+					item.setWeatherPhenomenon(str1);
 					
 					
 					list.add(item);
