@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Main-Class: readExcel.read
+Class-Path: . lib/commons-collections4-4.1.jar lib/dom4j-2.0.0-RC1-javadoc.jar
+  lib/poi-3.16-beta2.jar lib/poi-ooxml-3.16-beta2.jar lib/poi-ooxml-3.9-20121203.jar
+  lib/poi-ooxml-schemas-3.16-beta2.jar lib/xmlbeans-2.6.0.jar
+Created-By: wxy

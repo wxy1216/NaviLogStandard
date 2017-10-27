@@ -65,7 +65,7 @@ public class ReadItems {
 				//System.out.println(rowCount);
 				
 				//遍历每一行
-				for(int r=0;r<rowCount;r++){
+				for(int r=4;r<rowCount;r++){
 					
 					Row row=sheet.getRow(r);
 					//int cellCount=row.getPhysicalNumberOfCells();//获取总列数						
@@ -73,14 +73,14 @@ public class ReadItems {
 					item=new Items();
 					
 					
-					//编号
-					Cell cell=row.getCell(0);
-					cellValue=String.valueOf(cell.getNumericCellValue());
-					Double d=Double.parseDouble(cellValue);
-					item.setId(new Double(d).intValue());//转为整型
+//					//编号
+//					Cell cell=row.getCell(0);
+//					cellValue=String.valueOf(cell.getNumericCellValue());
+//					Double d=Double.parseDouble(cellValue);
+//					item.setId(new Double(d).intValue());//转为整型
 					
 					//时间 年月日时分秒
-					cell=row.getCell(21);
+					Cell cell=row.getCell(21);
 					cellValue=fmt.format(cell.getDateCellValue());//日期型
 					item.setTime(cellValue);
 						
@@ -92,8 +92,7 @@ public class ReadItems {
 					str1=cellValue.substring(0, 2);//str.substring(包括,不包括)
 					str2=cellValue.substring(3,5);
 					str3=cellValue.substring(6,11);
-					str4=cellValue.substring(12);
-					
+					str4=cellValue.substring(12);					
 					item.setLatitude(str1+str2+str3+str4);
 					
 					//经度
@@ -111,7 +110,7 @@ public class ReadItems {
 					//航向
 					cell=row.getCell(8);
 					cellValue=String.valueOf(cell.getNumericCellValue());
-					d=Double.parseDouble(cellValue);
+					Double d=Double.parseDouble(cellValue);
 					DecimalFormat df=new DecimalFormat("000");
 					str1=df.format(d);
 					item.setCourseBoat(str1);
@@ -243,6 +242,9 @@ public class ReadItems {
 					cellValue=String.valueOf(cell.getNumericCellValue());
 					d=Double.parseDouble(cellValue);
 					str1=new DecimalFormat("00").format(d);
+					if (str1=="99")
+						str1="  ";
+					
 					item.setWeatherPhenomenon(str1);
 					
 					
